@@ -223,8 +223,10 @@ public class DemoActivity extends Activity {
                     String msg = "";
                     try {
                         Bundle data = new Bundle();
-                        data.putString("my_message", "Hello World");
-                        data.putString("my_action", "com.google.android.gcm.demo.app.ECHO_NOW");
+//                        data.putString("my_message", "Hello World");
+//                        data.putString("my_action", "com.google.android.gcm.demo.app.ECHO_NOW");
+                        data.putString("CLIENT_MESSAGE", "REGISTRATION");
+                        data.putString("REG_ID", getRegistrationId(getApplicationContext()));
                         String id = Integer.toString(msgId.incrementAndGet());
                         gcm.send(SENDER_ID + "@gcm.googleapis.com", id, data);
                         msg = "Sent message";
@@ -287,8 +289,8 @@ public class DemoActivity extends Activity {
                 String msg = "";
                 try {
                     Bundle data = new Bundle();
-                    data.putString("my_message", "Hello World");
-                    data.putString("my_action", "com.google.android.gcm.demo.app.REGISTER");
+                    data.putString("CLIENT_MESSAGE", "REGISTRATION");
+                    data.putString("REG_ID", getRegistrationId(getApplicationContext()));
                     String id = Integer.toString(msgId.incrementAndGet());
                     gcm.send(SENDER_ID + "@gcm.googleapis.com", id, data);
                     msg = "Sent message";
